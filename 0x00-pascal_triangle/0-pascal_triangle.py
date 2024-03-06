@@ -1,19 +1,19 @@
 #!/usr/bin/python3
 
-import math
-
 
 """Pascal's Triangle
 """
 
+# import math
 
-def nCr(row, col):
-    """
-        get pascal coeficient for nth row, rth column
-        where r <= n
-    """
-    return (math.factorial(row) //
-            (math.factorial(col) * (math.factorial(row - col))))
+
+# def nCr(row, col):
+#     """
+#         get pascal coeficient for nth row, rth column
+#         where r <= n
+#     """
+#     return (math.factorial(row) //
+#             (math.factorial(col) * (math.factorial(row - col))))
 
 
 def pascal_triangle(n):
