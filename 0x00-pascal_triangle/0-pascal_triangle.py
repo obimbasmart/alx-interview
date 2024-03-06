@@ -4,17 +4,6 @@
 """Pascal's Triangle
 """
 
-# import math
-
-
-# def nCr(row, col):
-#     """
-#         get pascal coeficient for nth row, rth column
-#         where r <= n
-#     """
-#     return (math.factorial(row) //
-#             (math.factorial(col) * (math.factorial(row - col))))
-
 
 def pascal_triangle(n):
     """
@@ -24,7 +13,16 @@ def pascal_triangle(n):
     if n <= 0:
         return []
 
-    return [
-        [nCr(row, r) for r in range(row)]
-        for row in range(1, n)
-    ]
+    pascal_rows = [[0, 1, 0]]
+    for row in range(1, n):
+        row_n = []
+        try:
+            for i in range(len(pascal_rows[row - 1]) + 1):
+                row_n.append(pascal_rows[row - 1]
+                             [i - 1] + pascal_rows[row - 1][i])
+        except IndexError:
+            row_n.append(pascal_rows[row - 1][i - 1])
+
+        pascal_rows.append(row_n)
+
+    return [row[1:-1] for row in pascal_rows]
