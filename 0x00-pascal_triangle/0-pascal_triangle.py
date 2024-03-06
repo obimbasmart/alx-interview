@@ -24,5 +24,5 @@ def pascal_triangle(n):
 
     return [
         [nCr(row, r) for r in range(row)]
-        for row in range(n)
+        for row in range(1, n)
     ]
