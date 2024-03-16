@@ -17,9 +17,10 @@ def canUnlockAll(boxes):
             unlocked[index + 1] = True
             keys.update(box)
 
-            if locked_index and locked_index[0] in keys:
-                unlocked[locked_index[0]] = True
-                keys.update(boxes[locked_index[0]])
+            # check if key if found for prevously locked keys
+            if locked_index and locked_index[-1] in keys:
+                unlocked[locked_index[-1]] = True
+                keys.update(boxes[locked_index[-1]])
                 locked_index.pop()
         else:
             locked_index.append(index + 1)
