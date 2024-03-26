@@ -17,3 +17,11 @@ H => Copy All => Paste => HH => Paste =>HHH => Copy All => Paste => HHHHHH => Pa
 ```
 Number of operations: 6
 
+
+## Solution
+
+- At first, I took a good look at the problem and thought about what's really going on. It didn't take long for me to realize that the key to solving it lies in simplifying things. That's when I hit upon the idea of using prime factorization.
+
+- To make things easier, I tried to break down the problem into its core elements. What really influences the number of operations we need? That's when I started thinking about prime factorization.
+
+- It suddenly clicked: the sum of those prime factors is actually the minimum number of operations
