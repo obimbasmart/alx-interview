@@ -21,6 +21,10 @@ def signal_handler(sig, frame):
 def get_log_info(line: str) -> dict:
     """get info for each server log/line"""
     __match = re.match(log_format_regex, line)
+
+    if not bool(__match):
+        return {"is_valid_server_log": False}
+
     return {
         "is_valid_server_log": bool(bool(__match)),
         "status_code": __match.group(3),
@@ -44,7 +48,6 @@ def log_parse():
     metrics = defaultdict(int)
 
     for idx, line in enumerate(sys.stdin):
-
         if (idx + 1) % 10 == 0:
             print_stats(metrics)
 
@@ -52,6 +55,8 @@ def log_parse():
         if (log["is_valid_server_log"]):
             metrics[log["status_code"]] += 1
             metrics["file_size"] += log["file_size"]
+
+    print_stats(metrics)
 
 
 if __name__ == "__main__":
