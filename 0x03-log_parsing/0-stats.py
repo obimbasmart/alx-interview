@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+"""Log parsing"""
+
 import re
 import sys
 from collections import defaultdict
@@ -12,10 +14,12 @@ log_format_regex = r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - ' \
 
 # register signal handler for keyboard interrupt
 def signal_handler(sig, frame):
+    """signal handler"""
     pass
 
 
 def get_log_info(line: str) -> dict:
+    """get info for each server log/line"""
     __match = re.match(log_format_regex, line)
     return {
         "is_valid_server_log": bool(bool(__match)),
