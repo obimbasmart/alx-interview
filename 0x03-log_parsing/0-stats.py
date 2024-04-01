@@ -53,7 +53,7 @@ def log_parse():
     metrics = defaultdict(int)
 
     for idx, line in enumerate(sys.stdin):
-        if idx % 10 == 0:
+        if idx % 10 == 0 and idx != 0:
             print_stats(metrics)
 
         log = get_log_info(line)
