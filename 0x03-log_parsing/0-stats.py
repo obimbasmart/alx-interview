@@ -35,11 +35,11 @@ def get_log_info(line: str) -> dict:
 def print_stats(stat: dict):
     """print statistics"""
 
+    print(f'File size: {stat["file_size"]}')
     if not stat:
         return
 
     ordered_stat = OrderedDict(sorted(stat.items()))
-    print(f'File size: {stat["file_size"]}')
 
     [
         print(f'{status_code}: {count}')
