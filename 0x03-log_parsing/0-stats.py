@@ -7,8 +7,8 @@ import sys
 from collections import defaultdict, OrderedDict
 import signal
 
-log_format_regex = r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - ' \
-    r'\[([^\]]+)\] "GET \/projects\/260 HTTP\/1\.1" ' \
+log_format_regex = r'^((?:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' \
+    r'|Holberton)\s*-\s*\[([^\]]+)\] "GET \/projects\/260 HTTP\/1\.1" ' \
     r'(200|301|400|401|403|404|405|500) (\d+)$'
 
 
