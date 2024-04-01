@@ -5,17 +5,10 @@
 import re
 import sys
 from collections import defaultdict, OrderedDict
-import signal
 
 log_format_regex = r'^((?:\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})' \
     r'|Holberton)\s*-\s*\[([^\]]+)\] "GET \/projects\/260 HTTP\/1\.1" ' \
-    r'(200|301|400|401|403|404|405|500) (\d+)$'
-
-
-# register signal handler for keyboard interrupt
-def signal_handler(sig, frame):
-    """signal handler"""
-    pass
+    r'(200|301|400|401|403|404|405|500|Hello) (\d+)$'
 
 
 def get_log_info(line: str) -> dict:
@@ -44,7 +37,7 @@ def print_stats(stat: dict):
     [
         print(f'{status_code}: {count}')
         for status_code, count in ordered_stat.items()
-        if status_code != "file_size"
+        if status_code != "file_size" and status_code.isdigit()
     ]
 
 
@@ -65,5 +58,4 @@ def log_parse():
 
 
 if __name__ == "__main__":
-    signal.signal(signal.SIGINT, signal_handler)
     log_parse()
