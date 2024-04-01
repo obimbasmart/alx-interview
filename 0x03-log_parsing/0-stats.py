@@ -38,6 +38,7 @@ def print_stats(stat: dict):
     if not stat:
         return
 
+    sorted(stat)
     print(f'File size: {stat["file_size"]}')
 
     [
