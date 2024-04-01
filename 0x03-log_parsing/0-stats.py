@@ -34,6 +34,10 @@ def get_log_info(line: str) -> dict:
 
 def print_stats(stat: dict):
     """print statistics"""
+
+    if not stat:
+        return
+
     print(f'File size: {stat["file_size"]}')
 
     [
