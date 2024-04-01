@@ -4,7 +4,7 @@
 
 import re
 import sys
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 import signal
 
 log_format_regex = r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - ' \
@@ -38,12 +38,12 @@ def print_stats(stat: dict):
     if not stat:
         return
 
-    sorted(stat)
+    ordered_stat = OrderedDict(sorted(stat.items()))
     print(f'File size: {stat["file_size"]}')
 
     [
         print(f'{status_code}: {count}')
-        for status_code, count in stat.items()
+        for status_code, count in ordered_stat.items()
         if status_code != "file_size"
     ]
 
