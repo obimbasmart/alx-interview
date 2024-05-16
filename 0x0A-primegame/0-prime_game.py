@@ -6,6 +6,7 @@
 
 
 def isWinner(x, nums):
+    """Get winner"""
     def get_primes(n):
         primes = [True] * (n + 1)
         primes[0] = primes[1] = False
